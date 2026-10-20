@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: local-workspace-mcp
+  main:
+    web-application-type: none
+    banner-mode: off
+  ai:
+    mcp:
+      server:
+        name: local-workspace-mcp
+        version: 0.1.0
+        stdio: true
+        type: SYNC
+        request-timeout: 10s
+        instructions: "Start with workspace_status. AUTO resolves each call from client Roots or optional top-level projectRoot. On PROJECT_REQUIRED/PROJECT_AMBIGUOUS, supply the absolute current project directory from the Agent's own workspace; never guess from the MCP process directory, JAR, home, or previous project. Retain the canonical projectRoot returned in resolution and explicitly carry it on subsequent related calls, especially parallel projects. ROOTS_UNAVAILABLE requires restoring the client's complete Roots list; do not bypass a failed query. FIXED respects configured project-root. If needed workspace_init. Find task with task_list, then context_load and verify actual files. Read AGENT_GUIDE.md. Persist progress with task_update and handoff_save; reload and merge revision conflicts. Chat transcripts are not automatically imported."

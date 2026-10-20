@@ -1,0 +1,15 @@
+# Merge into your Codex config; replace the JAR path with its absolute location.
+# Requires JDK 17 on PATH. Otherwise use the full Java executable path as command.
+# AUTO selects a project from client Roots or the agent's projectRoot argument.
+# To upgrade from FIXED, remove --local-workspace.project-root=... and reconnect.
+# Fields checked against official OpenAI documentation on 2026-10-20:
+# https://learn.chatgpt.com/docs/extend/mcp?surface=cli
+[mcp_servers.local_workspace]
+command = "java"
+args = [
+  "-Dfile.encoding=UTF-8",
+  "-jar",
+  "C:/path/to/Local-Workspace/target/local-workspace-mcp-0.1.0.jar"
+]
+startup_timeout_sec = 30
+tool_timeout_sec = 60
